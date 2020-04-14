@@ -29,6 +29,9 @@ public class BackbuttonOverridePlugin extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		if ("overrideBackButton".equals(action)) {
 			context = callbackContext;
+			PluginResult pluginResult = new PluginResult(PluginResult.Status.NO_RESULT);
+            pluginResult.setKeepCallback(true);
+            callbackContext.sendPluginResult(pluginResult);
 			return true;
 		}
 
