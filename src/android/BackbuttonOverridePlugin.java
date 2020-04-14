@@ -1,17 +1,18 @@
-package org.sombrenuit.BackbuttonOverridePlugin;
+package org.sombrenuit;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import android.content.Intent;
 import android.util.Log;
 
 import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
+import org.apache.cordova.PluginResult;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 public class BackbuttonOverridePlugin extends CordovaPlugin {
 
-	private static final String LOG_TAG = "BackbuttonOverridePlugin";
+	private static final String TAG = "BBOverridePlugin";
 	private CallbackContext context;
 
 	CordovaInterface cordova;
@@ -32,7 +33,7 @@ public class BackbuttonOverridePlugin extends CordovaPlugin {
 			return true;
 		}
 
-		Log.e(LOG_TAG, "Called invalid action: "+action);
+		Log.e(TAG, "Called invalid action: "+action);
 		return false;
 	}
 
@@ -43,7 +44,7 @@ public class BackbuttonOverridePlugin extends CordovaPlugin {
 		{
 			PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, "");
             pluginResult.setKeepCallback(true);
-			content.sendPluginResult(pluginResult);
+			context.sendPluginResult(pluginResult);
 			return Boolean.TRUE;
 		}	
 		return null;
