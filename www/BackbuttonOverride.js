@@ -5,4 +5,4 @@ var BackbuttonOverride = {
     }
 };
 
-module.exports = Backbutton;
+module.exports = BackbuttonOverride;
