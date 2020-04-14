@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-backbutton-override"
+    version="0.0.1">
+    <name>BackbuttonOverride</name>
+    <description>Cordova Backbutton Override Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,Backbutton</keywords>
+    <js-module src="www/BackbuttonOverride.js" name="BackbuttonOverride">
+        <clobbers target="navigator.BackbuttonOverride" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BackbuttonOverridePlugin">
+                <param name="android-package" value="org.sombrenuit.BackbuttonOverridePlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/BackbuttonOverridePlugin.java" target-dir="src/org/sombrenuit/" />
+    </platform>
+</plugin>
+
